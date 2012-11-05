@@ -61,7 +61,7 @@ end
 products.each do |product|
 
 	# CSV
-	url = "https://sprint.ly/api/products/" + product['id'].to_s + "/items.csv?status=backlog,in-progress,completed,accepted"
+	url = "https://sprint.ly/api/products/" + product['id'].to_s + "/items.csv?status=backlog,in-progress,completed,accepted&children=true"
 	
 	response = HTTParty.get(url, :basic_auth => auth)
 	
@@ -72,7 +72,7 @@ products.each do |product|
 	file.close
 
 	# JSON
-	url = "https://sprint.ly/api/products/" + product['id'].to_s + "/items.json?status=backlog,in-progress,completed,accepted"
+	url = "https://sprint.ly/api/products/" + product['id'].to_s + "/items.json?status=backlog,in-progress,completed,accepted&children=true"
 	
 	response = HTTParty.get(url, :basic_auth => auth)
 	
